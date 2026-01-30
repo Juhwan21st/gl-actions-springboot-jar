@@ -7,6 +7,9 @@ COPY pom.xml ./
 COPY .mvn .mvn
 COPY mvnw ./
 
+# Make mvnw executable
+RUN chmod +x mvnw
+
 # Pre-fetch dependencies (fast rebuilds)
 RUN ./mvnw -q -DskipTests dependency:go-offline
 
